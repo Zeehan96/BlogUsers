@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import MyForm from './Form';
 
 const PostDetail = () => {
   const [post, setPost] = useState(null);
@@ -34,7 +35,7 @@ const PostDetail = () => {
         <p style={{textAlign:'center',fontWeight:'bold',fontSize:'30px'}}>Loading...</p>
       )}
                      <Link style={{listStyle:'none',color:'black',marginLeft:'38rem',textDecoration:'none',fontWeight:"bold",color:'green',border:'1px solid black'}} to={'/PostList'} >Back</Link> 
-
+  <MyForm/>
     </div>
   );
 };

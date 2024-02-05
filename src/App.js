@@ -20,6 +20,7 @@ import Home from './components/Home';
 import About from './components/About';
 import PostDetail from './components/PostDetail';
 import Page404 from './components/Page404';
+import MyForm from './components/Form';
 
 
 
