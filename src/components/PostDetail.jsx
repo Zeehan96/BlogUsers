@@ -1,6 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MyForm from './Form';
+import MyForm from '../components/Form';
 
 const PostDetail = () => {
   const [post, setPost] = useState(null);
@@ -24,18 +25,35 @@ const PostDetail = () => {
     fetchPost();
   }, []);
 
+  const updatePost = (newPostData) => {
+    setPost((prevPost) => ({ ...prevPost, ...newPostData }));
+  };
+
   return (
-    <div>
+    <div >
       {post ? (
-        <div className='PostDetailDiv'>
+        <div className='innerPost'>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
         </div>
       ) : (
-        <p style={{textAlign:'center',fontWeight:'bold',fontSize:'30px'}}>Loading...</p>
+        <p style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '30px' }}>Loading...</p>
       )}
-                     <Link style={{listStyle:'none',color:'black',marginLeft:'38rem',textDecoration:'none',fontWeight:"bold",color:'green',border:'1px solid black'}} to={'/PostList'} >Back</Link> 
-  <MyForm/>
+      <Link
+        style={{
+          listStyle: 'none',
+          color: 'black',
+          marginLeft: '38rem',
+          textDecoration: 'none',
+          fontWeight: 'bold',
+          color: 'green',
+          border: '1px solid black'
+        }}
+        to={'/PostList'}
+      >
+        Back
+      </Link>
+      <MyForm onSubmit={updatePost} />
     </div>
   );
 };

@@ -214,3 +214,18 @@ padding: 20px;
 Link{
   text-decoration: none;
 }
+.marginTop li:hover{
+  background-color: #47D466;
+}
+.innerPost{
+  border: 1px solid green;
+  width: 25rem;
+  margin-left:25rem ;
+  margin-bottom: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border-radius: 20px;
+}
+.innerPost:hover{
+  background-color: #47D466;
+}
