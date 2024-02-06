@@ -37,6 +37,7 @@ function App() {
         <Route path='/*' element={<Page404/>}></Route>
 
 
+
         {/* <Route path='/about' element={<About/>}></Route> */}
 
       </Routes>

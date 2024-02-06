@@ -227,5 +227,18 @@ Link{
   border-radius: 20px;
 }
 .innerPost:hover{
+  background-color:lightpink;
+}
+.navbar .active{
+  color: blue;
+}
+.innerPost button{
+  width: 22rem;
+  border-radius: 20px;
+  margin-bottom: 10px;
   background-color: #47D466;
+  color:black;
+  font-weight: bold;
+  height: 2.5rem;
+
 }

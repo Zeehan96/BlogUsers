@@ -1,37 +1,35 @@
-
+// MyForm.js
 import React, { useState } from 'react';
-import Footer from '../components/Footer';
-import editimage from '../assets/edit.png';
+import refresh from '../assets/refresh.png';
 
-const MyForm = ({ onSubmit }) => {
-  const [newTitle, setNewTitle] = useState('');
-  const [newBody, setNewBody] = useState('');
+const MyForm = ({ initialData, onSubmit }) => {
+  const [formData, setFormData] = useState(initialData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // ...
-
-    onSubmit({ title: newTitle, body: newBody });
+    onSubmit(formData);
   };
 
   return (
-    <div>
-<form onSubmit={handleSubmit} style={{margin:'0 25rem',marginTop:'5rem'}}>
-  <h3 style={{textAlign:'center'}}>Form For Edit&Update Post</h3>
+    <form onSubmit={handleSubmit} style={{margin:'0 29rem',borderRadius:'20px',border:'0.5px solid green',marginTop:'25px',boxShadow:'5px 5px 5px gray',marginBottom:'35px'}}>
       <label>
-        New Title:
-        <input style={{width:'25.5rem',height:'2.5rem',borderRadius:'20px',marginTop:'3rem'}} type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
-      </label>
-      <label style={{}}>
-        New Body:
-        <textarea style={{margin:'2rem 0',width:'25rem',height:'10rem',borderRadius:'20px'}} value={newBody} onChange={(e) => setNewBody(e.target.value)} />
-      </label>
-      <br />
-      <button style={{backgroundColor:'#47D466',width:'25rem',height:'2.5rem',marginTop:'2rem',border:'none',border:'0.5px solid black',borderRadius:'20px',marginLeft:'5rem',marginBottom:'2rem',fontWeight:'bold'}} type="submit"> <img src={editimage} alt="" /> Update Post</button>
+        Title:
+        <input style={{width:'22rem',marginTop:'10px',height:'3rem',borderRadius:'20px'}} type="text" name="title" value={formData.title} onChange={handleChange} />
+      </label><br />
+      <label>
+        Body:
+        <textarea style={{width:'22rem',height:'15rem',marginTop:'30px'}} name="body" value={formData.body} onChange={handleChange} />
+      </label><br />
+      <button style={{marginTop:'10px',width:'20rem',marginLeft:'60px',borderRadius:'20px',height:'2rem',marginBottom:'20px',backgroundColor:'#47D466',fontWeight:'bold'}} type="submit">Update-Detail <img src={refresh} alt="" /></button>
     </form>
-    <Footer/>
-    </div> 
   );
 };
 
